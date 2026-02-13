@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Pages } from '../../constants/pages.enum';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RouterService {
-  private currentPage: Pages = Pages.TRANSACTIONS;
-  // Usar BehaviorSubject()
+  private currentPage$ = new BehaviorSubject<Pages>(Pages.DASHBOARD);
 
   setCurrentPage(page: Pages): void {
-    this.currentPage = page;
+    this.currentPage$.next(page);
   }
 
-  getCurrentPage(): Pages {
-    return this.currentPage;
+  getCurrentPage(): Observable<Pages> {
+    return this.currentPage$;
   }
 }

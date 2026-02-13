@@ -3,20 +3,24 @@ import { Pages } from '../constants/pages.enum';
 import { RouterService } from '../core/services/router.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TransactionsListComponent } from './pages/transactions-list/transactions-list.component';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-panel',
-  imports: [DashboardComponent, TransactionsListComponent],
+  imports: [DashboardComponent, TransactionsListComponent, AsyncPipe],
   templateUrl: './main-panel.component.html',
   styleUrl: './main-panel.component.css',
 })
 export class MainPanelComponent implements OnInit {
   private readonly routerService = inject(RouterService);
 
-  page!: Pages;
+  // page!: Pages;
+  page$ = this.routerService.getCurrentPage();
   pagesEnum = Pages;
 
   ngOnInit(): void {
-    this.page = this.routerService.getCurrentPage();
+    // this.routerService.getCurrentPage().subscribe((page: Pages) => {
+    //   this.page = page;
+    // });
   }
 }

@@ -1,4 +1,4 @@
-@switch (page) {
+@switch (page$ | async) {
   @case (pagesEnum.DASHBOARD) {
     <app-dashboard></app-dashboard>
   }
