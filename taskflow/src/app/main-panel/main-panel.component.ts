@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Pages } from '../constants/pages.enum';
 import { RouterService } from '../core/services/router.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { TransactionsListComponent } from './pages/transactions-list/transactions-list.component';
+import { TransactionsListComponent } from './pages/transactions/transactions-list.component';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

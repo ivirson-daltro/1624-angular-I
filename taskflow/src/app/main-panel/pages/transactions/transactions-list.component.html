@@ -1,0 +1,9 @@
+<div class="p-3">
+  <button (click)="redirectToCreate()">Adicionar Transação</button>
+
+  @if (showCreateForm) {
+    <app-create-transaction></app-create-transaction>
+  } @else {
+    <h1>Lista</h1>
+  }
+</div>

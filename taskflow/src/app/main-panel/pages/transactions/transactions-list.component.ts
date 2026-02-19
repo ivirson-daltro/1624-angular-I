@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
 
 @Component({
   selector: 'app-transactions-list',
-  imports: [],
+  imports: [CreateTransactionComponent],
   templateUrl: './transactions-list.component.html',
   styleUrl: './transactions-list.component.css',
 })
@@ -28,4 +29,10 @@ export class TransactionsListComponent {
   //     },
   //   });
   // }
+
+  showCreateForm = true;
+
+  redirectToCreate(): void {
+    this.showCreateForm = !this.showCreateForm;
+  }
 }

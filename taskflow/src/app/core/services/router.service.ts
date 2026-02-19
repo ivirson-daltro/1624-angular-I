@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RouterService {
-  private currentPage$ = new BehaviorSubject<Pages>(Pages.DASHBOARD);
+  private currentPage$ = new BehaviorSubject<Pages>(Pages.TRANSACTIONS);
 
   setCurrentPage(page: Pages): void {
     this.currentPage$.next(page);
