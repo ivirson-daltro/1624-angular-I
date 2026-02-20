@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { first } from 'rxjs';
 import { TransactionTypes } from '../../constants/transaction-types.enum';
 import { TransactionsService } from '../../services/transactions.service';
+import { Transaction } from '../../models/transaction.model';
 
 @Component({
   selector: 'app-create-transaction',
@@ -29,8 +30,11 @@ export class CreateTransactionComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const payload: Transaction = this.form.getRawValue();
+    payload.amount =
+      (payload.type === TransactionTypes.EXPENSE ? -1 : 1) * payload.amount;
     this.transactionsService
-      .createTransaction(this.form.value)
+      .createTransaction(payload)
       .pipe(first())
       .subscribe({
         next: () => {

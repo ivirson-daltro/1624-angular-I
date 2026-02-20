@@ -34,10 +34,10 @@
       "type": "income"
     },
     {
-      "id": "a7ac",
+      "id": "40c3",
       "date": "2026-02-19",
       "description": "Descrição da transação",
-      "amount": 1500.85,
+      "amount": -1500.85,
       "type": "expense"
     }
   ],
