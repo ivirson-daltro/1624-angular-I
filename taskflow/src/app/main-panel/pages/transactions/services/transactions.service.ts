@@ -11,6 +11,10 @@ export class TransactionsService {
 
   apiUrl = 'http://localhost:3000';
 
+  getTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions`);
+  }
+
   createTransaction(transaction: Transaction): Observable<void> {
     return this.http.post<void>(`${this.apiUrl}/transactions`, transaction);
   }

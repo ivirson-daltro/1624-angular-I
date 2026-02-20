@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
+import { ListTransactionsComponent } from './components/list-transactions/list-transactions.component';
 
 @Component({
-  selector: 'app-transactions-list',
-  imports: [CreateTransactionComponent],
-  templateUrl: './transactions-list.component.html',
-  styleUrl: './transactions-list.component.css',
+  selector: 'app-transactions',
+  imports: [CreateTransactionComponent, ListTransactionsComponent],
+  templateUrl: './transactions.component.html',
+  styleUrl: './transactions.component.css',
 })
-export class TransactionsListComponent {
+export class TransactionsComponent {
   // private readonly destroyRef = inject(DestroyRef);
   // obs = new Observable((observer) => {
   //   let count = 0;
@@ -30,7 +31,7 @@ export class TransactionsListComponent {
   //   });
   // }
 
-  showCreateForm = true;
+  showCreateForm = false;
 
   redirectToCreate(): void {
     this.showCreateForm = !this.showCreateForm;

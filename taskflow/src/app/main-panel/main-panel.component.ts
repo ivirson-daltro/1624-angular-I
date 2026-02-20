@@ -2,12 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Pages } from '../constants/pages.enum';
 import { RouterService } from '../core/services/router.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { TransactionsListComponent } from './pages/transactions/transactions-list.component';
+import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-panel',
-  imports: [DashboardComponent, TransactionsListComponent, AsyncPipe],
+  imports: [DashboardComponent, TransactionsComponent, AsyncPipe],
   templateUrl: './main-panel.component.html',
   styleUrl: './main-panel.component.css',
 })

@@ -1,0 +1,28 @@
+<div class="p-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of transactions; track $index) {
+        <tr>
+          <td>{{ item.date | date: "dd/MM/yyyy" }}</td>
+          <td>{{ item.description }}</td>
+          <td [class]="item.amount | negativeValues">
+            {{ item.amount | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+          </td>
+          <td>
+            {{
+              item.type === transactionTypesEnum.INCOME ? "Entrada" : "Saída"
+            }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
